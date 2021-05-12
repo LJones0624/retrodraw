@@ -1,0 +1,71 @@
+function makeGrid() {
+    console.log('working hard')
+    for (let i = 0; i < 64; i++) {
+        $('.grid').append('<div class="cell">');
+    }
+}
+
+const PALETTE = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'indigo',
+    'violet',
+    'black',
+    'grey',
+    'white',
+];
+for (let i = 0; i < PALETTE.length; i++) {
+    const nextColor = PALETTE[i];
+
+    const nextButton = $('<button>');
+    nextButton.css('background', nextColor)
+
+    $('.palette').append(nextButton);
+
+}
+
+function makePalette() {
+    // code goes here
+    $('.palette button').first().addClass('active');
+
+
+
+}
+
+
+function onPaletteClick() {
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+
+
+}
+
+$('.palette button').click(onPaletteClick);
+
+function onGridClick() {
+    console.log('hey click me')
+    $(this).css({
+        backgroundColor: $('.active').css('backgroundColor')
+
+
+    })
+
+
+}
+
+$('.grid').click(onGridClick)
+
+
+
+
+
+
+makePalette();
+
+
+
+
+makeGrid();
